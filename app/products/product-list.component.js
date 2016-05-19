@@ -1,4 +1,4 @@
-System.register(['angular2/core', 'angular2/router', './product-filter.pipe', '../shared/star.component', './product.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', './product-filter.pipe', '../shared/star.component', './product.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -45,7 +45,7 @@ System.register(['angular2/core', 'angular2/router', './product-filter.pipe', '.
                 ProductListComponent.prototype.ngOnInit = function () {
                     var _this = this;
                     this._productService.getProducts()
-                        .subscribe(function (products) { return _this.products = products; }, function (error) { return _this.errorMessage = error; });
+                        .subscribe(function (result) { return _this.products = result; }, function (error) { return _this.errorMessage = error; });
                 };
                 ProductListComponent.prototype.onRatingClicked = function (message) {
                     this.pageTitle = 'Product List: ' + message;

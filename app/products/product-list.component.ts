@@ -1,10 +1,12 @@
-import { Component, OnInit }  from 'angular2/core';
-import { ROUTER_DIRECTIVES } from 'angular2/router';
+import { Component, OnInit }  from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import { IProduct } from './product';
 import { ProductFilterPipe } from './product-filter.pipe';
 import { StarComponent } from '../shared/star.component';
 import { ProductService } from './product.service';
+
+import { Observable } from 'rxjs/Rx';
 
 @Component({
     templateUrl: 'app/products/product-list.component.html',
@@ -31,10 +33,9 @@ export class ProductListComponent implements OnInit {
     }
 
     ngOnInit(): void {
-           this._productService.getProducts()
-                     .subscribe(
-                       products => this.products = products,
-                       error =>  this.errorMessage = <any>error);
+      this._productService.getProducts()
+       .subscribe( result => this.products = result, 
+       error => this.errorMessage = error);
     }
 
     onRatingClicked(message: string): void {

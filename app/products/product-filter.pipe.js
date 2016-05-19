@@ -1,4 +1,4 @@
-System.register(['angular2/core'], function(exports_1, context_1) {
+System.register(['@angular/core'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -21,8 +21,8 @@ System.register(['angular2/core'], function(exports_1, context_1) {
             ProductFilterPipe = (function () {
                 function ProductFilterPipe() {
                 }
-                ProductFilterPipe.prototype.transform = function (value, args) {
-                    var filter = args[0] ? args[0].toLocaleLowerCase() : null;
+                ProductFilterPipe.prototype.transform = function (value, filter) {
+                    filter = filter ? filter.toLocaleLowerCase() : null;
                     return filter ? value.filter(function (product) {
                         return product.productName.toLocaleLowerCase().indexOf(filter) !== -1;
                     }) : value;
